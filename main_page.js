@@ -16,6 +16,22 @@ let index = 0
 let text = ""
 let alphabet = ""
 
+function sendMail(params){
+    var tempParams = {
+        from_name: document.getElementById("name_input").value,
+        to_name: "Hysky Team",
+        subject: document.getElementById("subject_input").value,
+        email_name: document.getElementById("email_input").value,
+        message: document.getElementById("message").value 
+    }
+    emailjs.send('service_uu0gs4g', 'template_236i1vl', tempParams)
+    .then(function(res){
+        console.log("success", res.status)
+        res.status == 200 ? alert("Thank you, Email has been sent") : alert("There was a problem while sending the Email")
+    })
+
+}
+
 hamburger.addEventListener("click", () =>{
     links_outer.classList.toggle("links_another")
     hamburger.classList.toggle("burger")
@@ -38,23 +54,23 @@ let type = () =>{
 }
 type()
 
-let dark_mode = () =>{
-    if(dark_mode_icons.className == "far fa-moon"){
-        root.style.setProperty("--background_color", "#1C1522")
-        root.style.setProperty("--heading_color", "rgb(243, 240, 240)")
-        root.style.setProperty("--navbar_color", "#1C1522")
-        root.style.setProperty("--navbar_links", "rgb(243, 240, 240)")
-    }else{
-        root.style.setProperty("--background_color", "#F6F9F9")
-        root.style.setProperty("--heading_color", "#31343C")
-        root.style.setProperty("--navbar_color", "#white")
-        root.style.setProperty("--navbar_links", "blac")
+// let dark_mode = () =>{
+//     if(dark_mode_icons.className == "far fa-moon"){
+//         root.style.setProperty("--background_color", "#1C1522")
+//         root.style.setProperty("--heading_color", "rgb(243, 240, 240)")
+//         root.style.setProperty("--navbar_color", "#1C1522")
+//         root.style.setProperty("--navbar_links", "rgb(243, 240, 240)")
+//     }else{
+//         root.style.setProperty("--background_color", "#F6F9F9")
+//         root.style.setProperty("--heading_color", "#31343C")
+//         root.style.setProperty("--navbar_color", "#white")
+//         root.style.setProperty("--navbar_links", "blac")
 
-    }
+//     }
 
-    dark_mode_icons.className == "far fa-moon" ? dark_mode_icons.className = "far fa-sun" : dark_mode_icons.className = "far fa-moon"
+//     dark_mode_icons.className == "far fa-moon" ? dark_mode_icons.className = "far fa-sun" : dark_mode_icons.className = "far fa-moon"
 
-}
+// }
 let target = 222
 let num = 0
 let counting = () =>{
@@ -67,5 +83,5 @@ let counting = () =>{
 }
 counting()
 
-dark_mode_icons.addEventListener("click", dark_mode);
-dark_mode_icons1.addEventListener("click", dark_mode)
+// dark_mode_icons.addEventListener("click", dark_mode);
+// dark_mode_icons1.addEventListener("click", dark_mode)
